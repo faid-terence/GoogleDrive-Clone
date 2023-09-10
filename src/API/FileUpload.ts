@@ -23,7 +23,7 @@ export const fileUpload = (file: any, setProgress: Function) => {
     },
     () => {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        addFiles(downloadURL);
+        addFiles(downloadURL, file.name);
       });
     },
   );
