@@ -12,3 +12,9 @@ interface GithubAuth {
 interface Progress {
   progress : number;
 }
+
+interface ArrayType{
+    length: number;
+    map(arg0: (file: any) => React.JSX.Element): React.ReactNode;
+  
+}
