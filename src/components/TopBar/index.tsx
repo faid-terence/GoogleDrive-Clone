@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 
 import React from "react";
@@ -15,7 +15,7 @@ export default function TopBarComponent() {
         <img
           onClick={() => signOut()}
           className={styles.profileImg}
-          src={session?.user.image}
+          src={session.user?.image ?? '/default-image.jpg'}
         />
       ) : (
         <Button

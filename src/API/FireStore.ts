@@ -27,7 +27,7 @@ export const addFolder = (payload: {
   isFolder: boolean;
   fileList: object;
   parentId: string;
-  userEmail: string;
+  userEmail: string | undefined | null;
 }) => {
   try {
     void addDoc(files, {
