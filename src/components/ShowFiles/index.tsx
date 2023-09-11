@@ -8,8 +8,7 @@ import { fetchFiles } from "@/hooks/fetchFiles";
 import { BsFiles } from "react-icons/bs";
 import { HiMiniFolderOpen } from "react-icons/hi2";
 import { useRouter } from "next/router";
-export const ShowFiles = ({ parentId }) => {
-  console.log(parentId);
+export const ShowFiles = ({ parentId }: FolderStructure) => {
   const { fileList } = fetchFiles(parentId);
   const openFile = (fileLink: string) => {
     window.open(fileLink);
