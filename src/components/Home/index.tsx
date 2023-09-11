@@ -10,9 +10,9 @@ export default function HomeComponent() {
   return (
     <div>
       <TopBarComponent/>
-      <UploadFiles/>
+      <UploadFiles parentId = ""/>
 
-      <ShowFiles/>
+      <ShowFiles parentId = ""/>
     </div>
   );
 }
