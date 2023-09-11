@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
@@ -5,7 +6,7 @@
 import React from "react";
 import styles from "./showFiles.module.scss";
 import { fetchFiles } from "@/hooks/fetchFiles";
-import { BsFiles } from "react-icons/bs";
+// import { BsFiles } from "react-icons/bs";
 import { HiMiniFolderOpen } from "react-icons/hi2";
 import { useRouter } from "next/router";
 import { useFetchSession } from "@/hooks/useSession";

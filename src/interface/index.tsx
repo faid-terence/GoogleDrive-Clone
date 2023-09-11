@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 interface Button {
   btnClass?: string;
   title: string;
@@ -15,7 +17,7 @@ interface Progress {
 
 interface ArrayType{
     length: number;
-    map(arg0: (file: any) => React.JSX.Element): React.ReactNode;
+    map: any
   
 }
 

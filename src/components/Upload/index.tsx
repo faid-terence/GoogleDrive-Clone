@@ -9,14 +9,19 @@ export const UploadFiles = ({ parentId }: FolderStructure) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isFolderVisible, setFolderVisible] = useState(false);
-  const [folderName, setFolderName] = useState();
+  const [folderName, setFolderName] = useState<string | undefined>();
   const uploadFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     const userEmail = session?.user.email;
     fileUpload(file, setProgress, parentId, userEmail!);
   };
+  
   const { session } = useFetchSession();
   const uploadFolder = () => {
+    if (typeof folderName !== 'string') {
+      console.log("Terence")
+      return;
+    }
     const payload = {
       folderName: folderName,
       isFolder: true,

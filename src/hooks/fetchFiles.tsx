@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { database } from "@/firebaseConfig";
 import { onSnapshot, collection, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useFetchSession } from "./useSession";
+// import { useFetchSession } from "./useSession";
 const files = collection(database, "files");
-export const fetchFiles = (parentId: string, userEmail: string) => {
+export const fetchFiles = (parentId: string, userEmail: string| undefined | null) => {
   const [fileList, setFileList] = useState<ArrayType>([{}]);
-  const { session } = useFetchSession();
+  // const { session } = useFetchSession();
   // userEmail : session?.user.email;
   const emailQuery = query(files, where("userEmail", "==", userEmail));
   const getFolders = () => {
