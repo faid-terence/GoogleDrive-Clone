@@ -6,6 +6,7 @@ export const addFiles = (
   imageLink: string,
   imageName: string,
   parentId: string,
+  userEmail: string,
 ) => {
   try {
     void addDoc(files, {
@@ -13,6 +14,7 @@ export const addFiles = (
       imageName: imageName,
       isFolder: false,
       parentId: parentId,
+      userEmail: userEmail
     });
   } catch (error) {
     console.log(error);
@@ -24,6 +26,7 @@ export const addFolder = (payload: {
   isFolder: boolean;
   fileList: object;
   parentId: string;
+  userEmail: string
 }) => {
   try {
     void addDoc(files, {
@@ -31,6 +34,7 @@ export const addFolder = (payload: {
       isFolder: payload.isFolder,
       fileList: payload.fileList,
       parentId: payload.parentId,
+      userEmail : payload.userEmail
     });
   } catch (error) {
     console.log(error);

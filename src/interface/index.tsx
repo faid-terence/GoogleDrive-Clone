@@ -20,5 +20,5 @@ interface ArrayType{
 }
 
 interface FolderStructure {
-  parentId : string | string[] | undefined;
+  parentId : string ;
 }

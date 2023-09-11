@@ -8,14 +8,19 @@ import { fetchFiles } from "@/hooks/fetchFiles";
 import { BsFiles } from "react-icons/bs";
 import { HiMiniFolderOpen } from "react-icons/hi2";
 import { useRouter } from "next/router";
+import { useFetchSession } from "@/hooks/useSession";
+import TopBarComponent from "../TopBar";
 export const ShowFiles = ({ parentId }: FolderStructure) => {
-  const { fileList } = fetchFiles(parentId);
+  const { session } = useFetchSession();
+  const { fileList } = fetchFiles(parentId, session?.user.email);
   const openFile = (fileLink: string) => {
     window.open(fileLink);
   };
   const router = useRouter();
+
   return (
     <div className={styles.fileGrid}>
+      <TopBarComponent />
       {fileList.map(
         (file: {
           imageLink: "";
