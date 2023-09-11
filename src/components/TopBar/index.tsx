@@ -20,7 +20,7 @@ export default function TopBarComponent() {
       ) : (
         <Button
           onClick={() => signIn()}
-          btnClass="btn-primary"
+          btnClass="btn btn-outline btn-success"
           title="Sign Up!"
         />
       )}
