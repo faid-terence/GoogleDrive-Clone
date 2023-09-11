@@ -43,13 +43,13 @@ export const addFolder = (payload: {
 };
 
 
-export const deleteFile = async (fileId: string): Promise<void> => {
-  try {
-    // Use your file storage library's deleteDoc function to delete the file
-    await deleteDoc(fileId);
-    console.log(`File with ID ${fileId} deleted successfully.`);
-  } catch (error) {
-    console.error(`Error deleting file with ID ${fileId}: ${error}`);
-    throw error; // You can choose to handle the error as per your application's needs.
-  }
-};
+// export const deleteFile = async (fileId: string): Promise<void> => {
+//   try {
+//     // Use your file storage library's deleteDoc function to delete the file
+//     await deleteDoc(fileId);
+//     console.log(`File with ID ${fileId} deleted successfully.`);
+//   } catch (error) {
+//     console.error(`Error deleting file with ID ${fileId}: ${error}`);
+//     throw error; // You can choose to handle the error as per your application's needs.
+//   }
+// };
