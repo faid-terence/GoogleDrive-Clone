@@ -15,14 +15,14 @@ export const UploadFiles = ({ parentId }: FolderStructure) => {
     const userEmail = session?.user.email;
     fileUpload(file, setProgress, parentId, userEmail!);
   };
-  const {session} = useFetchSession();
+  const { session } = useFetchSession();
   const uploadFolder = () => {
     const payload = {
       folderName: folderName,
       isFolder: true,
       fileList: [],
       parentId: parentId || "",
-      userEmail : session?.user.email,
+      userEmail: session?.user.email,
     };
     addFolder(payload);
     setFolderName("");
