@@ -4,6 +4,7 @@ import Button from "@/components/common/Button/button";
 import { fileUpload } from "@/API/FileUpload";
 import Progress from "../common/Progress";
 import { addFolder } from "@/API/FireStore";
+import { useFetchSession } from "@/hooks/useSession";
 export const UploadFiles = ({ parentId }: FolderStructure) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -11,14 +12,17 @@ export const UploadFiles = ({ parentId }: FolderStructure) => {
   const [folderName, setFolderName] = useState();
   const uploadFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    fileUpload(file, setProgress, parentId);
+    const userEmail = session?.user.email;
+    fileUpload(file, setProgress, parentId, userEmail!);
   };
+  const {session} = useFetchSession();
   const uploadFolder = () => {
     const payload = {
       folderName: folderName,
       isFolder: true,
       fileList: [],
       parentId: parentId || "",
+      userEmail : session?.user.email,
     };
     addFolder(payload);
     setFolderName("");
