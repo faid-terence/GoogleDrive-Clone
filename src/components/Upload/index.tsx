@@ -36,8 +36,8 @@ export const UploadFiles = ({ parentId }: FolderStructure) => {
     <div className={styles.uploadMain}>
       <Button
         onClick={() => setFileVisible(!isFileVisible)}
-        title="+ New"
-        btnClass="btn-primary"
+        title="+ File"
+        btnClass="btn btn-outline"
       />
       {isFileVisible ? (
         <input
@@ -52,24 +52,22 @@ export const UploadFiles = ({ parentId }: FolderStructure) => {
       <Button
         onClick={() => setFolderVisible(!isFolderVisible)}
         title="Create a Folder"
-        btnClass="btn-info"
+        btnClass="btn btn-outline"
       />
       {isFolderVisible ? (
-        <input
+        <><input
           onChange={(event) => setFolderName(event.target.value)}
           type="text"
           placeholder="Type here"
-          className="input input-bordered input-accent w-full max-w-xs"
-          value={folderName}
-        />
+          className="input input-bordered w-full max-w-xs"
+          value={folderName} /><Button
+            onClick={() => uploadFolder()}
+            title="Create"
+            btnClass="btn" /></>
       ) : (
         <></>
       )}
-      <Button
-        onClick={() => uploadFolder()}
-        title="Create"
-        btnClass="btn-success"
-      />
+     
       {progress === 0 || progress === 100 ? (
         <></>
       ) : (
