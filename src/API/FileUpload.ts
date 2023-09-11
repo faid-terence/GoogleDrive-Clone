@@ -11,7 +11,7 @@ export const fileUpload = (
   file: any,
   setProgress: Function,
   parentId: string,
-  userEmail: string
+  userEmail: string,
 ) => {
   const storageRef = ref(storage, `files/${file.name}`);
   const uploadTask = uploadBytesResumable(storageRef, file);
