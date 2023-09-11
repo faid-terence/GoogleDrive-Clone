@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
@@ -6,11 +7,14 @@ import styles from "./showFiles.module.scss";
 import { fetchFiles } from "@/hooks/fetchFiles";
 import { BsFiles } from "react-icons/bs";
 import { HiMiniFolderOpen } from "react-icons/hi2";
-export const ShowFiles = () => {
-  const { fileList } = fetchFiles();
+import { useRouter } from "next/router";
+export const ShowFiles = ({ parentId }) => {
+  console.log(parentId);
+  const { fileList } = fetchFiles(parentId);
   const openFile = (fileLink: string) => {
     window.open(fileLink);
   };
+  const router = useRouter();
   return (
     <div className={styles.fileGrid}>
       {fileList.map(
@@ -19,26 +23,28 @@ export const ShowFiles = () => {
           imageName: "";
           isFolder: boolean;
           folderName: "";
+          id: "";
         }) => {
           return (
-            <div>
-              <div
-                onClick={() => openFile(file.imageLink)}
-                className={styles.files}
-              >
-                {file.isFolder ? (
-                  <>
-                    <HiMiniFolderOpen size={40} />
-                    <p>{file.folderName}</p>
-                  </>
-                ) : (
-                  <>
-                    {/* <BsFiles size={40} /> */}
-                    <img className={styles.imageLink} src={file.imageLink} />
-                    <p>{file.imageName}</p>
-                  </>
-                )}
-              </div>
+            <div key={file.id}>
+              {file.isFolder ? (
+                <div
+                  onClick={() => router.push(`/folder?id=${file.id}`)}
+                  className={styles.files}
+                >
+                  <HiMiniFolderOpen size={40} />
+                  <p>{file.folderName}</p>
+                </div>
+              ) : (
+                <div
+                  onClick={() => openFile(file.imageLink)}
+                  className={styles.files}
+                >
+                  {/* <BsFiles size={40} /> */}
+                  <img className={styles.imageLink} src={file.imageLink} />
+                  <p>{file.imageName}</p>
+                </div>
+              )}
 
               {/* <img className={styles.imageLink} src={file.imageLink} /> */}
             </div>

@@ -4,7 +4,7 @@ import Button from "@/components/common/Button/button";
 import { fileUpload } from "@/API/FileUpload";
 import Progress from "../common/Progress";
 import { addFolder } from "@/API/FireStore";
-export const UploadFiles = () => {
+export const UploadFiles = ({ parentId }) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isFolderVisible, setFolderVisible] = useState(false);
@@ -18,14 +18,15 @@ export const UploadFiles = () => {
       folderName: folderName,
       isFolder: true,
       fileList: [],
+      parentId: parentId || "",
     };
     addFolder(payload);
     setFolderName("");
   };
-  const handleAddFolder = () => {
-    // After adding the folder, hide the input field
-    setFolderVisible(false);
-  };
+  // const handleAddFolder = () => {
+  //   // After adding the folder, hide the input field
+  //   setFolderVisible(false);
+  // };
 
   return (
     <div className={styles.uploadMain}>
