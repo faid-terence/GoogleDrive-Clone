@@ -18,3 +18,7 @@ interface ArrayType{
     map(arg0: (file: any) => React.JSX.Element): React.ReactNode;
   
 }
+
+interface FolderStructure {
+  parentId : string | string[] | undefined;
+}

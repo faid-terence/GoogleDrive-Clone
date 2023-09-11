@@ -4,14 +4,14 @@ import Button from "@/components/common/Button/button";
 import { fileUpload } from "@/API/FileUpload";
 import Progress from "../common/Progress";
 import { addFolder } from "@/API/FireStore";
-export const UploadFiles = ({ parentId }) => {
+export const UploadFiles = ({ parentId }: FolderStructure) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [folderName, setFolderName] = useState();
   const uploadFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    fileUpload(file, setProgress);
+    fileUpload(file, setProgress, parentId);
   };
   const uploadFolder = () => {
     const payload = {
