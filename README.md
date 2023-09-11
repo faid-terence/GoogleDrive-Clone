@@ -1,28 +1,34 @@
-# Create T3 App
+# Google Drive Clone
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is a Google Drive clone project built using the T3 stack (Next.js, TypeScript, Firebase, and Next Auth). It allows users to store, manage, and access their files securely.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **User Authentication**: Secure user authentication is implemented using Next Auth with Firebase authentication providers.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **File Upload and Storage**: Users can upload files to their personal cloud storage and organize them into folders.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Folder Management**: Organize your files by creating, renaming, and deleting folders.
 
-## Learn More
+- **File Preview**: View supported file types directly in the app, including documents, images, and videos.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- **Real-time Updates**: Any changes to files or folders are reflected in real-time across all devices.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- **Responsive Design**: The app is designed to work seamlessly on both desktop and mobile devices.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Technologies Used
 
-## How do I deploy this?
+- **Next.js**: A React framework for building server-rendered applications.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- **TypeScript**: A statically typed superset of JavaScript for enhanced developer productivity.
+
+- **Firebase**: Google's cloud platform for authentication, real-time database, and cloud storage.
+
+- **Next Auth**: Authentication library for Next.js with built-in support for multiple authentication providers.
+
+## Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone <https://github.com/faid-terence/GoogleDrive-Clone.git>
